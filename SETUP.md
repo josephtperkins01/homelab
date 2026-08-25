@@ -101,7 +101,7 @@ For more secure access without passwords:
 
 1. **Generate SSH key on Windows:**
    ```powershell
-   ssh-keygen -t ed25519 -C "josephtperkins01@gmail.com"
+   ssh-keygen -t ed25519 -C "your-email@example.com"
    ```
 
 2. **Copy public key to server:**
