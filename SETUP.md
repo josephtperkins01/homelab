@@ -261,6 +261,50 @@ Once setup is complete:
 3. Create SSH key pair for GitHub access
 4. Begin Phase 2: Install and configure Nginx
 
+## SSH Hardening (applied)
+
+The following hardening steps were applied and verified on the VM:
+
+- Created dedicated `admin` user and added to `sudo` group
+- Disabled root login over SSH (`PermitRootLogin no`)
+- Disabled password authentication for SSH (`PasswordAuthentication no`) — key-only access enforced
+
+Verification commands (run on the VM):
+
+```bash
+# Restart SSH to apply changes
+sudo systemctl restart ssh
+
+# Verify sshd effective configuration
+sudo sshd -T | grep passwordauthentication
+# Expected: passwordauthentication no
+```
+
+From a fresh Windows PowerShell session, verify key-based login still works:
+
+```powershell
+ssh admin@127.0.0.1 -p 2222
+# Should log in without prompting for password (keys must be installed)
+```
+
+**Important:** Keep at least one account with a valid key before disabling password auth.
+
+## Firewall (ufw)
+
+A basic firewall policy was enabled using `ufw` with default-deny incoming and SSH allowed:
+
+```bash
+sudo apt install ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 22/tcp
+sudo ufw enable
+sudo ufw status verbose
+# Expected: "Status: active" and "22/tcp ALLOW IN"
+```
+
+This provides a minimal secure baseline: no incoming connections except explicitly allowed services.
+
 ---
 
 **Setup Date:** August 25, 2026
