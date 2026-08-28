@@ -41,14 +41,16 @@ Windows PC
 - [x] Install Ubuntu Server 24.04 LTS
 - [x] Basic system updates and configuration
 - [x] Install admin tools (curl, wget, git, vim, htop, net-tools, tree, unzip)
-- [ ] SSH setup with port forwarding
-- [ ] Hostname configuration
+- [x] SSH setup with port forwarding (see [SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md))
+- [x] Hostname configuration
+- [x] SSH hardening: created `admin` user, enabled key-based auth, disabled root login, disabled password authentication (see [SSH_HARDENING.md](./SSH_HARDENING.md))
+- [x] Firewall (ufw) enabled with default-deny incoming, SSH allowed (see [UFW.md](./UFW.md))
 
 ### Phase 2: Core Services
 - [ ] Install and configure Nginx
 - [ ] Setup basic web server
 - [ ] Configure SSL/TLS
-- [ ] Implement basic firewall rules
+- [ ] Implement additional firewall rules for services
 
 ### Phase 3: Monitoring & Admin
 - [ ] Install system monitoring (htop, glances)
@@ -124,9 +126,16 @@ git push origin main
 ## Next Steps
 
 1. **Complete Basic Setup** - Follow SETUP.md
-2. **Configure SSH Access** - Follow NETWORK.md
+2. **Configure SSH Access** - Follow NETWORK.md (see [SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md))
 3. **Install First Service** - Setup Nginx
 4. **Document Progress** - Update this README
+
+## Security & Maintenance (recommended next tasks)
+- [ ] Install and configure fail2ban to protect SSH
+- [ ] Implement an automated backup strategy and document scripts/locations
+- [ ] Configure monitoring (Prometheus / Node Exporter / Glances) and logging/rotation
+- [ ] Rotate SSH keys periodically and document key management
+- [ ] Harden services (Nginx/TLS, Docker security) and add related docs
 
 ---
 
