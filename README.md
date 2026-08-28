@@ -4,7 +4,7 @@
 
 A comprehensive Linux home lab environment built on VirtualBox for learning and experimenting with Linux system administration, networking, and infrastructure.
 
-**Status:** 🟡 In Progress - Initial Setup Phase
+**Status:** 🟢 Complete - Phase 1 & 2 Done
 
 ## Quick Start
 
@@ -36,6 +36,7 @@ Windows PC
 - **[SSH_HARDENING.md](./SSH_HARDENING.md)** - SSH hardening: admin user, key auth, root disabled
 - **[UFW.md](./UFW.md)** - Firewall configuration and rules
 - **[NGINX.md](./NGINX.md)** - Nginx web server installation and configuration
+- **[SSL_TLS.md](./SSL_TLS.md)** - Self-signed SSL/TLS certificate setup for HTTPS
 - **[SERVICES.md](./SERVICES.md)** - Services running and how to manage them
 - **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
 
@@ -50,15 +51,16 @@ Windows PC
 - [x] SSH hardening: created `admin` user, enabled key-based auth, disabled root login, disabled password authentication (see [SSH_HARDENING.md](./SSH_HARDENING.md))
 - [x] Firewall (ufw) enabled with default-deny incoming, SSH allowed (see [UFW.md](./UFW.md))
 
-### Phase 2: Core Services (Current)
+### Phase 2: Core Services (Complete)
 - [x] Install and configure Nginx (see [NGINX.md](./NGINX.md))
 - [x] Setup custom homepage
 - [x] Configure firewall rules for HTTP
 - [x] Port forwarding for HTTP (8080 → 80)
-- [ ] Configure SSL/TLS with Let's Encrypt
+- [x] Configure SSL/TLS with self-signed certificate (see [SSL_TLS.md](./SSL_TLS.md))
+- [x] Port forwarding for HTTPS (8443 → 443)
 - [ ] Setup virtual hosts for multiple sites
 
-### Phase 3: Monitoring & Admin
+### Phase 3: Monitoring & Admin (Current)
 - [ ] Install system monitoring (htop, glances)
 - [ ] Setup log rotation
 - [ ] Implement backup strategy
