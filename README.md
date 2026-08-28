@@ -32,6 +32,10 @@ Windows PC
 - **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System design and architecture diagram
 - **[HARDWARE.md](./HARDWARE.md)** - Server specifications and resource allocation
 - **[NETWORK.md](./NETWORK.md)** - Network configuration, SSH setup, port forwarding
+- **[SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md)** - VirtualBox port forwarding and SSH test instructions
+- **[SSH_HARDENING.md](./SSH_HARDENING.md)** - SSH hardening: admin user, key auth, root disabled
+- **[UFW.md](./UFW.md)** - Firewall configuration and rules
+- **[NGINX.md](./NGINX.md)** - Nginx web server installation and configuration
 - **[SERVICES.md](./SERVICES.md)** - Services running and how to manage them
 - **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
 
@@ -46,11 +50,13 @@ Windows PC
 - [x] SSH hardening: created `admin` user, enabled key-based auth, disabled root login, disabled password authentication (see [SSH_HARDENING.md](./SSH_HARDENING.md))
 - [x] Firewall (ufw) enabled with default-deny incoming, SSH allowed (see [UFW.md](./UFW.md))
 
-### Phase 2: Core Services
-- [ ] Install and configure Nginx
-- [ ] Setup basic web server
-- [ ] Configure SSL/TLS
-- [ ] Implement additional firewall rules for services
+### Phase 2: Core Services (Current)
+- [x] Install and configure Nginx (see [NGINX.md](./NGINX.md))
+- [x] Setup custom homepage
+- [x] Configure firewall rules for HTTP
+- [x] Port forwarding for HTTP (8080 → 80)
+- [ ] Configure SSL/TLS with Let's Encrypt
+- [ ] Setup virtual hosts for multiple sites
 
 ### Phase 3: Monitoring & Admin
 - [ ] Install system monitoring (htop, glances)
