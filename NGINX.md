@@ -6,7 +6,7 @@ This document records the Nginx web server installation and configuration applie
 
 Nginx is a lightweight, high-performance web server. It's installed and configured to serve a custom homepage and can be extended for virtual hosts, reverse proxying, and SSL/TLS.
 
-![Nginx Homepage Screenshot](../screenshots/nginx-homepage.png)
+![Nginx Homepage Screenshot](./screenshots/nginx-homepage.png)
 
 *Nginx serving custom homepage on 127.0.0.1:8080 with security hardening applied*
 

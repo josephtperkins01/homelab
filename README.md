@@ -36,6 +36,7 @@ Windows PC
 - **[SSH_HARDENING.md](./SSH_HARDENING.md)** - SSH hardening: admin user, key auth, root disabled
 - **[UFW.md](./UFW.md)** - Firewall configuration and rules
 - **[NGINX.md](./NGINX.md)** - Nginx web server installation and configuration
+- **[VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md)** - Multi-site Nginx server blocks and routing
 - **[SSL_TLS.md](./SSL_TLS.md)** - Self-signed SSL/TLS certificate setup for HTTPS
 - **[SERVICES.md](./SERVICES.md)** - Services running and how to manage them
 - **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
@@ -58,7 +59,8 @@ Windows PC
 - [x] Port forwarding for HTTP (8080 → 80)
 - [x] Configure SSL/TLS with self-signed certificate (see [SSL_TLS.md](./SSL_TLS.md))
 - [x] Port forwarding for HTTPS (8443 → 443)
-- [ ] Setup virtual hosts for multiple sites
+- [x] Configure virtual hosts for `site1.local` and `site2.local` (see [VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md))
+- [x] Troubleshoot Nginx default-server selection and verify Host-header routing
 
 ### Phase 3: Monitoring & Admin (Current)
 - [ ] Install system monitoring (htop, glances)
@@ -147,6 +149,6 @@ git push origin main
 
 ---
 
-**Last Updated:** August 25, 2026
+**Last Updated:** September 14, 2026
 **Author:** josephtperkins01
 **License:** MIT
