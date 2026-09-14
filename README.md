@@ -1,10 +1,10 @@
-# Linux Home Lab Documentation
+﻿# Linux Home Lab Documentation
 
 ## Project Overview
 
 A comprehensive Linux home lab environment built on VirtualBox for learning and experimenting with Linux system administration, networking, and infrastructure.
 
-**Status:** 🟢 Complete - Phase 1 & 2 Done
+**Status:** ðŸŸ¢ Complete - Phase 1 & 2 Done
 
 ## Quick Start
 
@@ -18,12 +18,12 @@ A comprehensive Linux home lab environment built on VirtualBox for learning and 
 ### Current Setup
 ```
 Windows PC
-   │
-   └─ VirtualBox
-      └─ Ubuntu Server (10.0.2.15)
-         ├─ SSH (port 2222 → 22)
-         ├─ Web Server (Nginx)
-         └─ Monitoring & Admin Tools
+   â”‚
+   â””â”€ VirtualBox
+      â””â”€ Ubuntu Server (10.0.2.15)
+         â”œâ”€ SSH (port 2222 â†’ 22)
+         â”œâ”€ Web Server (Nginx)
+         â””â”€ Monitoring & Admin Tools
 ```
 
 ## Documentation Structure
@@ -56,9 +56,9 @@ Windows PC
 - [x] Install and configure Nginx (see [NGINX.md](./NGINX.md))
 - [x] Setup custom homepage
 - [x] Configure firewall rules for HTTP
-- [x] Port forwarding for HTTP (8080 → 80)
+- [x] Port forwarding for HTTP (8080 â†’ 80)
 - [x] Configure SSL/TLS with self-signed certificate (see [SSL_TLS.md](./SSL_TLS.md))
-- [x] Port forwarding for HTTPS (8443 → 443)
+- [x] Port forwarding for HTTPS (8443 â†’ 443)
 - [x] Configure virtual hosts for `site1.local` and `site2.local` (see [VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md))
 - [x] Troubleshoot Nginx default-server selection and verify Host-header routing
 
@@ -152,3 +152,4 @@ git push origin main
 **Last Updated:** September 14, 2026
 **Author:** josephtperkins01
 **License:** MIT
+
