@@ -4,7 +4,7 @@
 
 A comprehensive Linux home lab environment built on VirtualBox for learning and experimenting with Linux system administration, networking, and infrastructure.
 
-**Status:** ðŸŸ¢ Complete - Phase 1 & 2 Done
+**Status:** 🟢 Complete - Phase 1, 2, and 3 Done
 
 ## Quick Start
 
@@ -38,6 +38,7 @@ Windows PC
 - **[NGINX.md](./NGINX.md)** - Nginx web server installation and configuration
 - **[VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md)** - Multi-site Nginx server blocks and routing
 - **[SSL_TLS.md](./SSL_TLS.md)** - Self-signed SSL/TLS certificate setup for HTTPS
+- **[MONITORING_ADMIN.md](./MONITORING_ADMIN.md)** - Monitoring, logging, backups, and admin health checks
 - **[SERVICES.md](./SERVICES.md)** - Services running and how to manage them
 - **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
 
@@ -62,11 +63,11 @@ Windows PC
 - [x] Configure virtual hosts for `site1.local` and `site2.local` (see [VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md))
 - [x] Troubleshoot Nginx default-server selection and verify Host-header routing
 
-### Phase 3: Monitoring & Admin (Current)
-- [ ] Install system monitoring (htop, glances)
-- [ ] Setup log rotation
-- [ ] Implement backup strategy
-- [ ] Create admin scripts
+### Phase 3: Monitoring & Admin (Complete)
+- [x] Install system monitoring (htop, glances) (see [MONITORING_ADMIN.md](./MONITORING_ADMIN.md))
+- [x] Setup log rotation
+- [x] Implement backup strategy
+- [x] Create admin scripts
 
 ### Phase 4: Advanced
 - [ ] Docker containerization
