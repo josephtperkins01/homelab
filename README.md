@@ -38,7 +38,7 @@ Windows PC
 - **[NGINX.md](./NGINX.md)** - Nginx web server installation and configuration
 - **[VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md)** - Multi-site Nginx server blocks and routing
 - **[SSL_TLS.md](./SSL_TLS.md)** - Self-signed SSL/TLS certificate setup for HTTPS
-- **[MONITORING_ADMIN.md](./MONITORING_ADMIN.md)** - Monitoring, logging, backups, and admin health checks
+- **[MONITORING_ADMIN.md](./MONITORING_ADMIN.md)** - Monitoring, logging, backups, and admin health checks`r`n- **[DOCKER_CI.md](./DOCKER_CI.md)** - Docker image build and GitHub Actions CI check
 - **[SERVICES.md](./SERVICES.md)** - Services running and how to manage them
 - **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
 
@@ -150,7 +150,8 @@ git push origin main
 
 ---
 
-**Last Updated:** September 14, 2026
+**Last Updated:** September 22, 2026
 **Author:** josephtperkins01
 **License:** MIT
+
 
