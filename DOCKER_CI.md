@@ -29,3 +29,11 @@ docker build -t homelab-docker-site .
 ```
 
 A successful workflow confirms that the Dockerfile and build context can produce an image. It does not publish the image to a registry or deploy it.
+
+## CI/CD milestone
+
+The first workflow run failed because `Dockerfile` and `index.html` were not yet present in the repository root. This was an intentional real-world failure: CI identified a missing build dependency rather than allowing the issue to remain hidden.
+
+After the repository structure was corrected and both files were committed, the second workflow run passed successfully. The pipeline now validates the Docker build end-to-end on every push to `main` and every pull request targeting `main`.
+
+This workflow is a build check only. It does not publish an image or deploy to a server. Cloud deployment is planned separately as an AWS EC2 migration.

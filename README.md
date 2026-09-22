@@ -4,7 +4,7 @@
 
 A comprehensive Linux home lab environment built on VirtualBox for learning and experimenting with Linux system administration, networking, and infrastructure.
 
-**Status:** 🟢 Complete - Phase 1, 2, and 3 Done
+**Status:** 🟢 Complete - Phases 1–4 implemented
 
 ## Quick Start
 
@@ -153,5 +153,6 @@ git push origin main
 **Last Updated:** September 22, 2026
 **Author:** josephtperkins01
 **License:** MIT
+
 
 
