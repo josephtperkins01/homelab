@@ -73,10 +73,17 @@ Windows PC
 ### Phase 4: Advanced (Complete)
 - [x] Docker containerization (see [DOCKER_CI.md](./DOCKER_CI.md))
 - [x] CI/CD pipeline basics with GitHub Actions
-- [ ] Python automation scripts (future extension)
-- [ ] Cloud deployment basics — planned AWS EC2 migration
+- [x] Project documentation and final validation
 
 The Docker build workflow initially failed because the repository was missing `Dockerfile` and `index.html` at the root. After correcting the repository structure, the next workflow run passed successfully. This demonstrates CI catching a real issue and validating the fix.
+
+This project is now closed with Phases 1–4 complete. Future work will begin as a separate project when ready.
+
+### Future Projects (Deferred)
+- Python automation scripts
+- AWS EC2 cloud migration
+- Container image publishing and deployment
+
 ## Key Learning Outcomes
 
 By completing this home lab, you'll gain practical experience with:
@@ -155,6 +162,7 @@ git push origin main
 **Last Updated:** September 22, 2026
 **Author:** josephtperkins01
 **License:** MIT
+
 
 
 
