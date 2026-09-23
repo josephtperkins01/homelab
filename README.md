@@ -4,8 +4,6 @@
 
 I built and documented a four-phase Linux home lab to demonstrate practical systems administration, infrastructure, security, networking, monitoring, containerization, and CI/CD skills.
 
-**Status:** Complete - Phases 1-4 implemented and documented
-
 ## Environment
 
 - **Host:** Windows 11
