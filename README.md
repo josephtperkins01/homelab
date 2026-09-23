@@ -6,6 +6,11 @@ The lab runs on an Ubuntu Server VM in VirtualBox on my Windows 11 PC. I built i
 
 I also documented the problems I ran into along the way and how I fixed them rather than only documenting the final working configuration.
 
+## Overview
+
+This repository documents a Linux home lab built in VirtualBox, covering the core responsibilities of a Linux/systems administration role: securing remote access, deploying and hardening a web server, automating monitoring and backups, and containerizing a service with a working CI pipeline. Each phase is documented with the configuration used, the reasoning behind key decisions, and any issues encountered along the way.
+
+
 ## Lab Environment
 
 - **Host:** Windows 11
