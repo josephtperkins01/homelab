@@ -142,7 +142,9 @@ git push origin main
 - [VirtualBox Manual](https://www.virtualbox.org/manual/)
 - [Linux man pages](https://man7.org/)
 - [Nginx Documentation](https://nginx.org/en/docs/)
-`r`n---`r`n
+
+---
+
 **Last Updated:** September 22, 2026
 **Author:** josephtperkins01
 **License:** MIT
