@@ -1,131 +1,86 @@
-# Linux Home Lab Documentation
+# Linux Home Lab
 
-## Project Overview
+## Portfolio Overview
 
-A comprehensive Linux home lab environment built on VirtualBox for learning and experimenting with Linux system administration, networking, and infrastructure.
+I built and documented a four-phase Linux home lab to demonstrate practical systems administration, infrastructure, security, networking, monitoring, containerization, and CI/CD skills.
 
-**Status:** 🟢 Complete - Phases 1–4 implemented
+**Status:** Complete ? Phases 1?4 implemented and documented
 
-## Quick Start
+## Environment
 
-### Environment
-- **Host OS:** Windows 11
+- **Host:** Windows 11
 - **Virtualization:** VirtualBox
-- **Guest OS:** Ubuntu Server 24.04.4 LTS
-- **Server Name:** homelab-server
-- **Username:** vboxuser
+- **Guest:** Ubuntu Server 24.04.4 LTS
+- **Server:** `homelab-server`
+- **Network model:** VirtualBox NAT with localhost port forwarding
+- **Access path:** Windows `127.0.0.1:2222` to Ubuntu SSH port 22
 
-### Current Setup
-```
+```text
 Windows PC
    |
-   +-- VirtualBox
-       +-- Ubuntu Server (10.0.2.15)
-           +-- SSH (port 2222 -> 22)
-           +-- Web Server (Nginx)
-           +-- Monitoring & Admin Tools
+   +-- VirtualBox NAT
+       +-- Ubuntu Server (homelab-server)
+           +-- SSH: host 2222 -> guest 22
+           +-- HTTP: host 8080 -> guest 80
+           +-- HTTPS: host 8443 -> guest 443
+           +-- Nginx, UFW, monitoring, backups, Docker
 ```
 
-## Documentation Structure
+## Skills Demonstrated
 
-- **[SETUP.md](./SETUP.md)** - Installation and initial configuration steps
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System design and architecture diagram
-- **[HARDWARE.md](./HARDWARE.md)** - Server specifications and resource allocation
-- **[NETWORK.md](./NETWORK.md)** - Network configuration, SSH setup, port forwarding
-- **[SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md)** - VirtualBox port forwarding and SSH test instructions
-- **[SSH_HARDENING.md](./SSH_HARDENING.md)** - SSH hardening: admin user, key auth, root disabled
-- **[UFW.md](./UFW.md)** - Firewall configuration and rules
-- **[NGINX.md](./NGINX.md)** - Nginx web server installation and configuration
-- **[VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md)** - Multi-site Nginx server blocks and routing
-- **[SSL_TLS.md](./SSL_TLS.md)** - Self-signed SSL/TLS certificate setup for HTTPS
-- **[MONITORING_ADMIN.md](./MONITORING_ADMIN.md)** - Monitoring, logging, backups, and admin health checks
-- **[DOCKER_CI.md](./DOCKER_CI.md)** - Docker image build and GitHub Actions CI check
-- **[SERVICES.md](./SERVICES.md)** - Services running and how to manage them
-- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
+### Linux administration and security
 
-## Project Goals
+- Built and maintained an Ubuntu Server VM.
+- Created a dedicated sudo administrator and used key-based SSH access.
+- Disabled root SSH login and password-based SSH authentication after validating key access.
+- Applied a default-deny inbound UFW policy and opened only required service ports.
 
-### Phase 1: Foundation (Current)
-- [x] Install Ubuntu Server 24.04 LTS
-- [x] Basic system updates and configuration
-- [x] Install admin tools (curl, wget, git, vim, htop, net-tools, tree, unzip)
-- [x] SSH setup with port forwarding (see [SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md))
-- [x] Hostname configuration
-- [x] SSH hardening: created `admin` user, enabled key-based auth, disabled root login, disabled password authentication (see [SSH_HARDENING.md](./SSH_HARDENING.md))
-- [x] Firewall (ufw) enabled with default-deny incoming, SSH allowed (see [UFW.md](./UFW.md))
+### Networking and web infrastructure
 
-### Phase 2: Core Services (Complete)
-- [x] Install and configure Nginx (see [NGINX.md](./NGINX.md))
-- [x] Setup custom homepage
-- [x] Configure firewall rules for HTTP
-- [x] Port forwarding for HTTP (8080 -> 80)
-- [x] Configure SSL/TLS with self-signed certificate (see [SSL_TLS.md](./SSL_TLS.md))
-- [x] Port forwarding for HTTP (8080 -> 80)
-- [x] Configure virtual hosts for `site1.local` and `site2.local` (see [VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md))
-- [x] Troubleshoot Nginx default-server selection and verify Host-header routing
+- Configured VirtualBox NAT port forwarding for SSH, HTTP, and HTTPS.
+- Deployed Nginx with a custom homepage and self-signed TLS.
+- Hosted two independent virtual sites with Nginx server blocks.
+- Diagnosed a default-server selection issue and verified host-based routing with custom `Host` headers.
 
-### Phase 3: Monitoring & Admin (Complete)
-- [x] Install system monitoring (htop, glances) (see [MONITORING_ADMIN.md](./MONITORING_ADMIN.md))
-- [x] Setup log rotation
-- [x] Implement backup strategy
-- [x] Create admin scripts
+### Operations and reliability
 
-### Phase 4: Advanced (Complete)
-- [x] Docker containerization (see [DOCKER_CI.md](./DOCKER_CI.md))
-- [x] CI/CD pipeline basics with GitHub Actions
-- [x] Project documentation and final validation
+- Used `htop` and `glances` for live resource inspection.
+- Customized Nginx log rotation and validated it with a dry run and a real rotation.
+- Automated nightly backups of `/etc/nginx` and `/var/www` with cron.
+- Created a health-check script covering uptime, resources, services, firewall status, and backup state.
 
-The Docker build workflow initially failed because the repository was missing `Dockerfile` and `index.html` at the root. After correcting the repository structure, the next workflow run passed successfully. This demonstrates CI catching a real issue and validating the fix.
+### Containers and CI/CD
 
-This project is now closed with Phases 1–4 complete. Future work will begin as a separate project when ready.
+- Built a containerized Nginx site with Docker.
+- Added GitHub Actions to validate Docker builds on pushes and pull requests.
+- Used the initial failed workflow to identify missing root-level build files, corrected the repository structure, and verified a passing run.
 
-### Future Projects (Deferred)
-- Python automation scripts
-- AWS EC2 cloud migration
-- Container image publishing and deployment
+## Evidence and Technical Records
 
-## Key Learning Outcomes
+These files document the implementation and the troubleshooting behind it. They are project evidence, not a step-by-step tutorial.
 
-By completing this home lab, you'll gain practical experience with:
-- Linux system administration
-- User and permission management
-- Networking and SSH
-- Web server configuration
-- System monitoring and logging
-- Shell scripting and automation
-- Containerization and deployment
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)** ? Built system design and component relationships
+- **[HARDWARE.md](./HARDWARE.md)** ? Virtual machine resource assumptions
+- **[NETWORK.md](./NETWORK.md)** ? Network model and connectivity decisions
+- **[SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md)** ? Tested SSH access path
+- **[SSH_HARDENING.md](./SSH_HARDENING.md)** ? Admin access and SSH hardening, including recovery from an interrupted edit
+- **[UFW.md](./UFW.md)** ? Firewall policy and service rules
+- **[NGINX.md](./NGINX.md)** ? Nginx deployment and custom homepage
+- **[VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md)** ? Multi-site hosting and default-server troubleshooting
+- **[SSL_TLS.md](./SSL_TLS.md)** ? Local self-signed HTTPS implementation
+- **[MONITORING_ADMIN.md](./MONITORING_ADMIN.md)** ? Monitoring, log rotation, backups, and health checks
+- **[DOCKER_CI.md](./DOCKER_CI.md)** ? Docker image and GitHub Actions build validation
+- **[SERVICES.md](./SERVICES.md)** ? Services represented in the completed lab
+- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** ? Problems encountered and how I resolved them
+- **[screenshots/](./screenshots/)** ? Evidence of the Nginx site running
 
-## Quick Commands Reference
+## Project Outcome
 
-### System Information
-```bash
-hostname              # Server name
-ip addr              # Network configuration
-df -h                # Disk usage
-free -h              # Memory usage
-uptime               # Uptime and load
-htop                 # Interactive process monitor
-```
+This repository captures a completed, working lab rather than a list of commands. It shows how I designed the environment, made security tradeoffs, validated changes, investigated failures, and documented the final state.
 
-### Server Management
-```bash
-sudo systemctl status nginx     # Check service status
-sudo systemctl restart nginx    # Restart service
-sudo journalctl -xe             # View system logs
-```
+The project is closed at Phase 4. Any future cloud migration or additional automation will be treated as a separate project.
 
-## Resume Summary
-
-Built and documented a four-phase Linux home lab on Ubuntu Server in VirtualBox:
-
-- Hardened SSH with a dedicated sudo administrator, Ed25519 key authentication, disabled root login, and disabled password authentication.
-- Configured UFW with a default-deny inbound policy and explicit service rules.
-- Deployed Nginx with a custom site, self-signed HTTPS, and multiple virtual hosts using server blocks and Host-header testing.
-- Added operational practices including `htop`, `glances`, Nginx log rotation, nightly configuration/site backups, and a consolidated health-check script.
-- Containerized a simple Nginx site with Docker and added GitHub Actions CI to validate image builds, including troubleshooting an initial failed workflow.
-
-This repository is a portfolio record of the systems, security, networking, troubleshooting, and automation skills demonstrated in the lab.
-## Resources & References
+## References
 
 - [Ubuntu Server Documentation](https://ubuntu.com/server/docs)
 - [VirtualBox Manual](https://www.virtualbox.org/manual/)
@@ -134,6 +89,6 @@ This repository is a portfolio record of the systems, security, networking, trou
 
 ---
 
-**Last Updated:** September 22, 2026
-**Author:** josephtperkins01
+**Last updated:** September 23, 2026  
+**Author:** josephtperkins01  
 **License:** MIT
