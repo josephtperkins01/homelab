@@ -130,6 +130,6 @@ sudo journalctl -u nginx --since today
 
 ---
 
-**Last updated:** September 23, 2026  
-**Author:** josephtperkins01  
+**Last updated:** September 23, 2026
+**Author:** josephtperkins01
 **License:** MIT
