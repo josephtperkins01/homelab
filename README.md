@@ -142,20 +142,7 @@ git push origin main
 - [VirtualBox Manual](https://www.virtualbox.org/manual/)
 - [Linux man pages](https://man7.org/)
 - [Nginx Documentation](https://nginx.org/en/docs/)
-
-## Next Steps
-
-1. **Complete Basic Setup** - Follow SETUP.md
-2. **Configure SSH Access** - Follow NETWORK.md (see [SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md))
-3. **Install First Service** - Setup Nginx
-4. **Document Progress** - Update this README
-
-## Deferred follow-up work
-
-Fail2ban, key rotation, expanded monitoring, and additional service hardening are intentionally deferred to a future project.
-
----
-
+`r`n---`r`n
 **Last Updated:** September 22, 2026
 **Author:** josephtperkins01
 **License:** MIT
