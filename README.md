@@ -4,7 +4,7 @@
 
 I built and documented a four-phase Linux home lab to demonstrate practical systems administration, infrastructure, security, networking, monitoring, containerization, and CI/CD skills.
 
-**Status:** Complete ? Phases 1?4 implemented and documented
+**Status:** Complete - Phases 1-4 implemented and documented
 
 ## Environment
 
@@ -59,26 +59,54 @@ Windows PC
 
 These files document the implementation and the troubleshooting behind it. They are project evidence, not a step-by-step tutorial.
 
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** ? Built system design and component relationships
-- **[HARDWARE.md](./HARDWARE.md)** ? Virtual machine resource assumptions
-- **[NETWORK.md](./NETWORK.md)** ? Network model and connectivity decisions
-- **[SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md)** ? Tested SSH access path
-- **[SSH_HARDENING.md](./SSH_HARDENING.md)** ? Admin access and SSH hardening, including recovery from an interrupted edit
-- **[UFW.md](./UFW.md)** ? Firewall policy and service rules
-- **[NGINX.md](./NGINX.md)** ? Nginx deployment and custom homepage
-- **[VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md)** ? Multi-site hosting and default-server troubleshooting
-- **[SSL_TLS.md](./SSL_TLS.md)** ? Local self-signed HTTPS implementation
-- **[MONITORING_ADMIN.md](./MONITORING_ADMIN.md)** ? Monitoring, log rotation, backups, and health checks
-- **[DOCKER_CI.md](./DOCKER_CI.md)** ? Docker image and GitHub Actions build validation
-- **[SERVICES.md](./SERVICES.md)** ? Services represented in the completed lab
-- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** ? Problems encountered and how I resolved them
-- **[screenshots/](./screenshots/)** ? Evidence of the Nginx site running
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Built system design and component relationships
+- **[HARDWARE.md](./HARDWARE.md)** - Virtual machine resource assumptions
+- **[NETWORK.md](./NETWORK.md)** - Network model and connectivity decisions
+- **[SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md)** - Tested SSH access path
+- **[SSH_HARDENING.md](./SSH_HARDENING.md)** - Admin access and SSH hardening, including recovery from an interrupted edit
+- **[UFW.md](./UFW.md)** - Firewall policy and service rules
+- **[NGINX.md](./NGINX.md)** - Nginx deployment and custom homepage
+- **[VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md)** - Multi-site hosting and default-server troubleshooting
+- **[SSL_TLS.md](./SSL_TLS.md)** - Local self-signed HTTPS implementation
+- **[MONITORING_ADMIN.md](./MONITORING_ADMIN.md)** - Monitoring, log rotation, backups, and health checks
+- **[DOCKER_CI.md](./DOCKER_CI.md)** - Docker image and GitHub Actions build validation
+- **[SERVICES.md](./SERVICES.md)** - Services represented in the completed lab
+- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Problems encountered and how I resolved them
+- **[screenshots/](./screenshots/)** - Evidence of the Nginx site running
 
 ## Project Outcome
 
 This repository captures a completed, working lab rather than a list of commands. It shows how I designed the environment, made security tradeoffs, validated changes, investigated failures, and documented the final state.
 
 The project is closed at Phase 4. Any future cloud migration or additional automation will be treated as a separate project.
+
+## Quick Reference
+
+The completed lab used these representative commands for validation and operations:
+
+```bash
+hostname
+ip -br addr
+sudo systemctl status nginx
+sudo nginx -t
+sudo ufw status verbose
+sudo ss -tlnp
+sudo journalctl -u nginx --since today
+```
+
+These are reference commands for reviewing the implementation; the detailed records explain the decisions and outcomes behind them.
+
+## Project Access
+
+To review the project, start with this README, then follow the links under **Evidence and Technical Records**. The repository documents the final environment and the troubleshooting that shaped it rather than providing a beginner installation walkthrough.
+
+## Future Work
+
+The project is intentionally closed at Phase 4. A future AWS EC2 migration, additional automation, or image publishing effort would be tracked as a separate project so the scope and outcomes remain clear.
+
+## Maintenance Note
+
+Changes to this lab should be documented with the same evidence standard: record the reason for the change, validate the result, and capture any failure or recovery path that demonstrates troubleshooting skill.
 
 ## References
 
