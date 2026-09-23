@@ -1,88 +1,115 @@
 # Linux Home Lab
 
-## Portfolio Overview
+A hands-on Linux home lab I built to get more experience with Linux administration, networking, web servers, security, troubleshooting, and basic automation.
 
-I built and documented a four-phase Linux home lab to demonstrate practical systems administration, infrastructure, security, networking, monitoring, containerization, and CI/CD skills.
+The lab runs on an Ubuntu Server VM in VirtualBox on my Windows 11 PC. I built it from the ground up and used it to practice the same types of tasks I would expect to encounter in a Linux or technical support environment: setting up remote access, securing the server, deploying Nginx, configuring networking, monitoring system health, creating backups, and running a small Docker deployment with GitHub Actions.
 
-**Status:** Complete - Phases 1-4 implemented and documented
+I also documented the problems I ran into along the way and how I fixed them rather than only documenting the final working configuration.
 
-## Environment
+## Lab Environment
 
 - **Host:** Windows 11
 - **Virtualization:** VirtualBox
-- **Guest:** Ubuntu Server 24.04.4 LTS
+- **Guest OS:** Ubuntu Server 24.04.4 LTS
 - **Server:** `homelab-server`
-- **Network model:** VirtualBox NAT with localhost port forwarding
-- **Access path:** Windows `127.0.0.1:2222` to Ubuntu SSH port 22
+- **Network:** VirtualBox NAT with port forwarding
+- **SSH:** Windows `127.0.0.1:2222` -> Ubuntu `22`
+- **HTTP:** Windows `127.0.0.1:8080` -> Ubuntu `80`
+- **HTTPS:** Windows `127.0.0.1:8443` -> Ubuntu `443`
+
+### Basic Layout
 
 ```text
-Windows PC
+Windows 11 PC
    |
    +-- VirtualBox NAT
+       |
        +-- Ubuntu Server (homelab-server)
-           +-- SSH: host 2222 -> guest 22
-           +-- HTTP: host 8080 -> guest 80
-           +-- HTTPS: host 8443 -> guest 443
-           +-- Nginx, UFW, monitoring, backups, Docker
+           |
+           +-- SSH
+           +-- Nginx
+           +-- UFW firewall
+           +-- Monitoring
+           +-- Automated backups
+           +-- Docker
 ```
 
-## Skills Demonstrated
+## What I Built
 
-### Linux administration and security
+### Linux Administration & Security
 
-- Built and maintained an Ubuntu Server VM.
-- Created a dedicated sudo administrator and used key-based SSH access.
-- Disabled root SSH login and password-based SSH authentication after validating key access.
-- Applied a default-deny inbound UFW policy and opened only required service ports.
+- Installed and configured an Ubuntu Server VM.
+- Created a dedicated administrative user with sudo access.
+- Configured SSH key-based authentication.
+- Disabled root SSH login and password authentication after verifying key-based access.
+- Configured UFW with a default-deny inbound policy and only allowed the ports required by the lab.
+- Used systemd and standard Linux tools to inspect and manage services.
 
-### Networking and web infrastructure
+### Networking & Web Server
 
 - Configured VirtualBox NAT port forwarding for SSH, HTTP, and HTTPS.
-- Deployed Nginx with a custom homepage and self-signed TLS.
-- Hosted two independent virtual sites with Nginx server blocks.
-- Diagnosed a default-server selection issue and verified host-based routing with custom `Host` headers.
+- Installed and configured Nginx.
+- Created a custom web page hosted by the server.
+- Configured HTTPS using a local self-signed certificate.
+- Set up multiple Nginx virtual hosts.
+- Troubleshot an issue where Nginx was serving the default site instead of the intended virtual host.
+- Used custom `Host` headers and Nginx configuration testing to confirm the correct site was being served.
 
-### Operations and reliability
+### Monitoring, Logging & Backups
 
-- Used `htop` and `glances` for live resource inspection.
-- Customized Nginx log rotation and validated it with a dry run and a real rotation.
-- Automated nightly backups of `/etc/nginx` and `/var/www` with cron.
-- Created a health-check script covering uptime, resources, services, firewall status, and backup state.
+- Used `htop` and `glances` to monitor system resources.
+- Reviewed Nginx and system logs with `journalctl`.
+- Configured and tested Nginx log rotation.
+- Created automated nightly backups of `/etc/nginx` and `/var/www`.
+- Wrote a basic health-check script to report on:
+  - System uptime
+  - Resource usage
+  - Running services
+  - Firewall status
+  - Backup status
 
-### Containers and CI/CD
+### Docker & GitHub Actions
 
-- Built a containerized Nginx site with Docker.
-- Added GitHub Actions to validate Docker builds on pushes and pull requests.
-- Used the initial failed workflow to identify missing root-level build files, corrected the repository structure, and verified a passing run.
+- Containerized an Nginx web site with Docker.
+- Created a GitHub Actions workflow to validate Docker builds on pushes and pull requests.
+- Troubleshot an initial failed workflow caused by the repository structure and missing build files.
+- Corrected the repository layout and verified successful CI runs.
 
-## Evidence and Technical Records
+## What I Learned
 
-These files document the implementation and the troubleshooting behind it. They are project evidence, not a step-by-step tutorial.
+This project gave me practical experience with Linux beyond simply running commands. A large part of the project was troubleshooting problems when something did not work as expected.
 
-- [**ARCHITECTURE.md**](./ARCHITECTURE.md) - Built system design and component relationships
-- [**HARDWARE.md**](./HARDWARE.md) - Virtual machine resource assumptions
-- [**NETWORK.md**](./NETWORK.md) - Network model and connectivity decisions
-- [**SSH_PORT_FORWARDING.md**](./SSH_PORT_FORWARDING.md) - Tested SSH access path
-- [**SSH_HARDENING.md**](./SSH_HARDENING.md) - Admin access and SSH hardening, including recovery from an interrupted edit
-- [**UFW.md**](./UFW.md) - Firewall policy and service rules
-- [**NGINX.md**](./NGINX.md) - Nginx deployment and custom homepage
-- [**VIRTUAL_HOSTS.md**](./VIRTUAL_HOSTS.md) - Multi-site hosting and default-server troubleshooting
-- [**SSL_TLS.md**](./SSL_TLS.md) - Local self-signed HTTPS implementation
-- [**MONITORING_ADMIN.md**](./MONITORING_ADMIN.md) - Monitoring, log rotation, backups, and health checks
-- [**DOCKER_CI.md**](./DOCKER_CI.md) - Docker image and GitHub Actions build validation
-- [**SERVICES.md**](./SERVICES.md) - Services represented in the completed lab
+Some examples included:
+
+- Fixing SSH configuration without locking myself out of the server.
+- Tracking down why the wrong Nginx site was being served.
+- Verifying network connectivity through VirtualBox port forwarding.
+- Testing firewall rules and confirming which ports were actually listening.
+- Diagnosing a failed GitHub Actions build and fixing the repository structure.
+- Validating backups and log rotation instead of assuming they were working.
+
+## Project Documentation
+
+The repository contains notes and configuration details for the major parts of the lab:
+
+- [**ARCHITECTURE.md**](./ARCHITECTURE.md) - Overall lab design
+- [**HARDWARE.md**](./HARDWARE.md) - VM resources and assumptions
+- [**NETWORK.md**](./NETWORK.md) - Networking and port forwarding
+- [**SSH_PORT_FORWARDING.md**](./SSH_PORT_FORWARDING.md) - SSH connectivity
+- [**SSH_HARDENING.md**](./SSH_HARDENING.md) - SSH security configuration and troubleshooting
+- [**UFW.md**](./UFW.md) - Firewall configuration
+- [**NGINX.md**](./NGINX.md) - Nginx installation and configuration
+- [**VIRTUAL_HOSTS.md**](./VIRTUAL_HOSTS.md) - Multiple sites and virtual host troubleshooting
+- [**SSL_TLS.md**](./SSL_TLS.md) - Local HTTPS setup
+- [**MONITORING_ADMIN.md**](./MONITORING_ADMIN.md) - Monitoring, logging, backups, and health checks
+- [**DOCKER_CI.md**](./DOCKER_CI.md) - Docker and GitHub Actions
+- [**SERVICES.md**](./SERVICES.md) - Services running in the lab
 - [**TROUBLESHOOTING.md**](./TROUBLESHOOTING.md) - Problems encountered and how I resolved them
-- [**screenshots/**](./screenshots/) - Evidence of the Nginx site running
+- [**screenshots/**](./screenshots/) - Screenshots of the working environment
 
-## Project Outcome
+## Useful Commands
 
-This repository captures a completed, working lab rather than a list of commands. It shows how I designed the environment, made security tradeoffs, validated changes, investigated failures, and documented the final state.
-
-The project is closed at Phase 4. Any future cloud migration or additional automation will be treated as a separate project.
-
-## Quick Reference
-
-The completed lab used these representative commands for validation and operations:
+A few of the commands I used regularly while building and troubleshooting the lab:
 
 ```bash
 hostname
@@ -94,20 +121,6 @@ sudo ss -tlnp
 sudo journalctl -u nginx --since today
 ```
 
-These are reference commands for reviewing the implementation; the detailed records explain the decisions and outcomes behind them.
-
-## Project Access
-
-To review the project, start with this README, then follow the links under **Evidence and Technical Records**. The repository documents the final environment and the troubleshooting that shaped it rather than providing a beginner installation walkthrough.
-
-## Future Work
-
-The project is intentionally closed at Phase 4. A future AWS EC2 migration, additional automation, or image publishing effort would be tracked as a separate project so the scope and outcomes remain clear.
-
-## Maintenance Note
-
-Changes to this lab should be documented with the same evidence standard: record the reason for the change, validate the result, and capture any failure or recovery path that demonstrates troubleshooting skill.
-
 ## References
 
 - [Ubuntu Server Documentation](https://ubuntu.com/server/docs)
@@ -117,6 +130,6 @@ Changes to this lab should be documented with the same evidence standard: record
 
 ---
 
-**Last updated:** September 23, 2026
-**Author:** josephtperkins01
+**Last updated:** September 23, 2026  
+**Author:** josephtperkins01  
 **License:** MIT
