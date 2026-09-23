@@ -2,7 +2,7 @@
 
 A hands-on Linux home lab I built to get more experience with Linux administration, networking, web servers, security, troubleshooting, and basic automation.
 
-The lab runs on an Ubuntu Server VM in VirtualBox on my Windows 11 PC. I built it from the ground up and used it to practice the same types of tasks I would expect to encounter in a Linux or technical support environment: setting up remote access, securing the server, deploying Nginx, configuring networking, monitoring system health, creating backups, and running a small Docker deployment with GitHub Actions.
+The lab runs on an Ubuntu Server VM in VirtualBox on my Windows 11 PC. I used it to practice the same types of tasks I would expect to encounter in a Linux or technical support environment: setting up remote access, securing the server, deploying Nginx, configuring networking, monitoring system health, creating backups, and running a small Docker deployment with GitHub Actions.
 
 I also documented the problems I ran into along the way and how I fixed them rather than only documenting the final working configuration.
 
