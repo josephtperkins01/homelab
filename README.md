@@ -113,29 +113,17 @@ sudo systemctl status nginx     # Check service status
 sudo systemctl restart nginx    # Restart service
 sudo journalctl -xe             # View system logs
 ```
+\r\n## Resume Summary
 
-## Getting Started
+Built and documented a four-phase Linux home lab on Ubuntu Server in VirtualBox:
 
-1. Start Ubuntu Server VM in VirtualBox
-2. Login with `vboxuser` credentials
-3. Follow steps in [SETUP.md](./SETUP.md)
-4. Configure SSH following [NETWORK.md](./NETWORK.md)
-5. Begin Phase 1 setup tasks
+- Hardened SSH with a dedicated sudo administrator, Ed25519 key authentication, disabled root login, and disabled password authentication.
+- Configured UFW with a default-deny inbound policy and explicit service rules.
+- Deployed Nginx with a custom site, self-signed HTTPS, and multiple virtual hosts using server blocks and Host-header testing.
+- Added operational practices including `htop`, `glances`, Nginx log rotation, nightly configuration/site backups, and a consolidated health-check script.
+- Containerized a simple Nginx site with Docker and added GitHub Actions CI to validate image builds, including troubleshooting an initial failed workflow.
 
-## Contributing to This Lab
-
-As you build the home lab:
-1. Update relevant documentation files
-2. Add new configuration files to appropriate directories
-3. Keep notes on issues encountered and resolutions
-4. Commit changes with descriptive messages
-
-```bash
-git add .
-git commit -m "Feature: Add description of changes"
-git push origin main
-```
-
+This repository is a portfolio record of the systems, security, networking, troubleshooting, and automation skills demonstrated in the lab.
 ## Resources & References
 
 - [Ubuntu Server Documentation](https://ubuntu.com/server/docs)
