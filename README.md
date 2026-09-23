@@ -96,17 +96,6 @@ sudo journalctl -u nginx --since today
 
 These are reference commands for reviewing the implementation; the detailed records explain the decisions and outcomes behind them.
 
-## Project Access
-
-To review the project, start with this README, then follow the links under **Evidence and Technical Records**. The repository documents the final environment and the troubleshooting that shaped it rather than providing a beginner installation walkthrough.
-
-## Future Work
-
-The project is intentionally closed at Phase 4. A future AWS EC2 migration, additional automation, or image publishing effort would be tracked as a separate project so the scope and outcomes remain clear.
-
-## Maintenance Note
-
-Changes to this lab should be documented with the same evidence standard: record the reason for the change, validate the result, and capture any failure or recovery path that demonstrates troubleshooting skill.
 
 ## References
 
