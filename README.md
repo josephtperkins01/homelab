@@ -59,20 +59,20 @@ Windows PC
 
 These files document the implementation and the troubleshooting behind it. They are project evidence, not a step-by-step tutorial.
 
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Built system design and component relationships
-- **[HARDWARE.md](./HARDWARE.md)** - Virtual machine resource assumptions
-- **[NETWORK.md](./NETWORK.md)** - Network model and connectivity decisions
-- **[SSH_PORT_FORWARDING.md](./SSH_PORT_FORWARDING.md)** - Tested SSH access path
-- **[SSH_HARDENING.md](./SSH_HARDENING.md)** - Admin access and SSH hardening, including recovery from an interrupted edit
-- **[UFW.md](./UFW.md)** - Firewall policy and service rules
-- **[NGINX.md](./NGINX.md)** - Nginx deployment and custom homepage
-- **[VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md)** - Multi-site hosting and default-server troubleshooting
-- **[SSL_TLS.md](./SSL_TLS.md)** - Local self-signed HTTPS implementation
-- **[MONITORING_ADMIN.md](./MONITORING_ADMIN.md)** - Monitoring, log rotation, backups, and health checks
-- **[DOCKER_CI.md](./DOCKER_CI.md)** - Docker image and GitHub Actions build validation
-- **[SERVICES.md](./SERVICES.md)** - Services represented in the completed lab
-- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Problems encountered and how I resolved them
-- **[screenshots/](./screenshots/)** - Evidence of the Nginx site running
+- [**ARCHITECTURE.md**](./ARCHITECTURE.md) - Built system design and component relationships
+- [**HARDWARE.md**](./HARDWARE.md) - Virtual machine resource assumptions
+- [**NETWORK.md**](./NETWORK.md) - Network model and connectivity decisions
+- [**SSH_PORT_FORWARDING.md**](./SSH_PORT_FORWARDING.md) - Tested SSH access path
+- [**SSH_HARDENING.md**](./SSH_HARDENING.md) - Admin access and SSH hardening, including recovery from an interrupted edit
+- [**UFW.md**](./UFW.md) - Firewall policy and service rules
+- [**NGINX.md**](./NGINX.md) - Nginx deployment and custom homepage
+- [**VIRTUAL_HOSTS.md**](./VIRTUAL_HOSTS.md) - Multi-site hosting and default-server troubleshooting
+- [**SSL_TLS.md**](./SSL_TLS.md) - Local self-signed HTTPS implementation
+- [**MONITORING_ADMIN.md**](./MONITORING_ADMIN.md) - Monitoring, log rotation, backups, and health checks
+- [**DOCKER_CI.md**](./DOCKER_CI.md) - Docker image and GitHub Actions build validation
+- [**SERVICES.md**](./SERVICES.md) - Services represented in the completed lab
+- [**TROUBLESHOOTING.md**](./TROUBLESHOOTING.md) - Problems encountered and how I resolved them
+- [**screenshots/**](./screenshots/) - Evidence of the Nginx site running
 
 ## Project Outcome
 
