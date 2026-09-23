@@ -113,7 +113,8 @@ sudo systemctl status nginx     # Check service status
 sudo systemctl restart nginx    # Restart service
 sudo journalctl -xe             # View system logs
 ```
-\r\n## Resume Summary
+
+## Resume Summary
 
 Built and documented a four-phase Linux home lab on Ubuntu Server in VirtualBox:
 
