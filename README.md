@@ -1,8 +1,8 @@
 # Linux Home Lab
 
-## Portfolio Overview
+## Overview
 
-I built and documented a four-phase Linux home lab to demonstrate practical systems administration, infrastructure, security, networking, monitoring, containerization, and CI/CD skills.
+This repository documents a Linux home lab built in VirtualBox, covering the core responsibilities of a Linux/systems administration role: securing remote access, deploying and hardening a web server, automating monitoring and backups, and containerizing a service with a working CI pipeline. Each phase is documented with the configuration used, the reasoning behind key decisions, and any issues encountered along the way.
 
 ## Environment
 
@@ -72,12 +72,6 @@ These files document the implementation and the troubleshooting behind it. They 
 - [**TROUBLESHOOTING.md**](./TROUBLESHOOTING.md) - Problems encountered and how I resolved them
 - [**screenshots/**](./screenshots/) - Evidence of the Nginx site running
 
-## Project Outcome
-
-This repository captures a completed, working lab rather than a list of commands. It shows how I designed the environment, made security tradeoffs, validated changes, investigated failures, and documented the final state.
-
-The project is closed at Phase 4. Any future cloud migration or additional automation will be treated as a separate project.
-
 ## Quick Reference
 
 The completed lab used these representative commands for validation and operations:
@@ -91,9 +85,6 @@ sudo ufw status verbose
 sudo ss -tlnp
 sudo journalctl -u nginx --since today
 ```
-
-These are reference commands for reviewing the implementation; the detailed records explain the decisions and outcomes behind them.
-
 
 ## References
 
