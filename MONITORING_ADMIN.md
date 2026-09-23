@@ -1,4 +1,7 @@
-﻿# Monitoring and Admin Operations
+# Monitoring and Admin Operations
+
+I finished the third phase by adding the operational pieces I would want on a small server: live inspection, bounded logs, recoverable backups, and one health-check command.
+
 
 This document records the Phase 3 work completed for the homelab project.
 

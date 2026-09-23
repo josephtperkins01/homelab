@@ -1,5 +1,8 @@
 # VirtualBox Port Forwarding & SSH Test
 
+I chose a localhost-only forward so Windows could reach SSH without exposing the VM directly to the LAN. This is the connection path I tested from PowerShell.
+
+
 This document shows the recommended VirtualBox NAT port-forwarding rule and how to test SSH access from Windows.
 
 Important: Use 127.0.0.1 (localhost) for the Host IP — do not use your Windows LAN IP.

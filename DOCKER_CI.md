@@ -1,39 +1,46 @@
-﻿# Docker Build and GitHub Actions
+# Docker Build and GitHub Actions
 
-This repository includes a minimal Dockerized Nginx site and a GitHub Actions build check.
+I added a small Dockerized Nginx site and a GitHub Actions build check so the repository can prove that the image still builds after each change.
 
-## Docker image
+## The image
 
-`Dockerfile` uses `nginx:alpine` as the base image and copies `index.html` into Nginx's default document root.
+The `Dockerfile` intentionally stays small:
 
-Build and run locally:
+```dockerfile
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+```
+
+I chose the Alpine Nginx image because this lab only needs a lightweight web server for the example site.
+
+To build and test locally:
 
 ```bash
 docker build -t homelab-docker-site .
 docker run --name homelab-docker-site -d -p 8080:80 homelab-docker-site
 ```
 
-Open `http://localhost:8080` to verify the containerized page. Stop and remove it when finished:
+I can open `http://localhost:8080` to verify the container page, then clean it up:
 
 ```bash
 docker stop homelab-docker-site
 docker rm homelab-docker-site
 ```
 
-## Continuous integration
+## The CI workflow
 
-`.github/workflows/docker-build.yml` runs on pushes to `main` and pull requests targeting `main`. It checks out the repository and builds the Docker image with the same command used locally:
+`.github/workflows/docker-build.yml` runs on pushes to `main` and pull requests targeting `main`. It checks out the repository and runs the same build command I use locally:
 
 ```bash
 docker build -t homelab-docker-site .
 ```
 
-A successful workflow confirms that the Dockerfile and build context can produce an image. It does not publish the image to a registry or deploy it.
+The workflow is a build check only. It does not publish an image or deploy to a server.
 
-## CI/CD milestone
+## The failure that proved the workflow mattered
 
-The first workflow run failed because `Dockerfile` and `index.html` were not yet present in the repository root. This was an intentional real-world failure: CI identified a missing build dependency rather than allowing the issue to remain hidden.
+The first workflow run failed because `Dockerfile` and `index.html` were not present at the repository root. Instead of treating that as a generic CI problem, I used the failure to identify the missing build context, added both files, committed the correction, and pushed again.
 
-After the repository structure was corrected and both files were committed, the second workflow run passed successfully. The pipeline now validates the Docker build end-to-end on every push to `main` and every pull request targeting `main`.
+The second run passed. That gives this project a more useful CI story than a green run from the start: GitHub Actions caught a real repository mistake, and the follow-up run verified the fix end to end.
 
-This workflow is a build check only. It does not publish an image or deploy to a server. Cloud deployment is planned separately as an AWS EC2 migration.
+Cloud deployment is intentionally deferred to the separate AWS EC2 project.

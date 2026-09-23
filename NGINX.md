@@ -1,5 +1,8 @@
 # Nginx Configuration
 
+I installed Nginx as the first application service and used it to prove the network path with a custom page before moving on to TLS and virtual hosts.
+
+
 This document records the Nginx web server installation and configuration applied to the homelab.
 
 ## Overview

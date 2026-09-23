@@ -1,60 +1,48 @@
-# SSH Hardening and Admin User
+# SSH Hardening and Admin Access
 
-This document records SSH and admin user hardening steps performed in the homelab.
+I created a dedicated `admin` account so I could manage the server without using the default `vboxuser` account for every task. The account belongs to the `sudo` group, which lets me escalate only when an administrative command requires it.
 
-Summary of changes applied:
+## What I changed
 
-- Created a dedicated admin user with sudo privileges (group: sudo)
-- Enabled SSH key-based authentication for the admin user
-- Disabled root login over SSH (PermitRootLogin no)
-- Continued to allow password authentication for other users (not disabled here)
+- Created `admin` and verified its groups with `groups admin`.
+- Added an Ed25519 public key to `~admin/.ssh/authorized_keys`.
+- Set `PermitRootLogin no` because root should never be a named SSH login target; privileged work should be traceable to a real user and escalated with `sudo`.
+- Set `PasswordAuthentication no` after confirming key-based login worked.
 
-Details
+## Verification
 
-1. Admin account
-
-- Username: admin
-- Groups: admin, sudo, users
-
-Verification:
-```
-# On the VM:
+```bash
 groups admin
 # Expected: admin : admin sudo users
 
-# Validate sudo works as admin:
-ssh admin@127.0.0.1 -p 2222
-sudo whoami
-# Expected output: root
-```
-
-2. SSH key-based authentication
-
-- Admin's public key stored in `~admin/.ssh/authorized_keys`
-- Key was generated on Windows with `ssh-keygen -t ed25519 -C "your-email@example.com"` and copied to the VM
-
-3. SSHD configuration changes
-
-File: `/etc/ssh/sshd_config`
-- `PermitRootLogin no` (root login disabled)
-- `PubkeyAuthentication yes` (allowed)
-- `PasswordAuthentication yes` (currently still allowed for accounts without keys)
-
-After changes, reload SSH:
-```
 sudo systemctl restart ssh
+sudo sshd -T | grep passwordauthentication
+# Expected: passwordauthentication no
+
+sudo whoami
+# Expected: root
 ```
 
-4. Recommended next step (optional)
-- Disable password authentication entirely:
-  - Edit `/etc/ssh/sshd_config`
-  - Set `PasswordAuthentication no`
-  - Restart SSH: `sudo systemctl restart ssh`
-- Ensure at least one account (e.g., admin) has keys installed before disabling passwords
+From a new Windows PowerShell session, I verified the key-only path with:
 
-5. Troubleshooting
-- If SSH stops accepting connections after edits, use VirtualBox console to revert changes or restore from snapshot.
-- To remove a problematic host key from Windows: `ssh-keygen -R [127.0.0.1]:2222`
+```powershell
+ssh admin@127.0.0.1 -p 2222
+```
 
-Last updated: August 27, 2026
-Author: josephtperkins01
+The connection opened without asking for a password.
+
+## The edit that made this feel real
+
+While I was editing `/etc/ssh/sshd_config`, my PC shut down mid-edit. I used the VirtualBox console to regain access, checked the file rather than assuming the change was lost, and confirmed that `PermitRootLogin no` was still present. I then searched for `PasswordAuthentication` directly in `nano`, changed it to `no`, restarted SSH, and tested from a completely fresh PowerShell window.
+
+That sequence matters: I kept a console path available, verified the effective configuration with `sshd -T`, and tested the hardened login before closing the original access path.
+
+## Recovery notes
+
+If SSH access breaks during future changes, I can use the VirtualBox console to repair `/etc/ssh/sshd_config` or restore a snapshot. If Windows reports a stale host key after rebuilding the VM, I can remove it with:
+
+```powershell
+ssh-keygen -R [127.0.0.1]:2222
+```
+
+Last updated: September 23, 2026

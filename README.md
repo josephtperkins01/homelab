@@ -1,4 +1,4 @@
-﻿# Linux Home Lab Documentation
+# Linux Home Lab Documentation
 
 ## Project Overview
 
@@ -18,12 +18,12 @@ A comprehensive Linux home lab environment built on VirtualBox for learning and 
 ### Current Setup
 ```
 Windows PC
-   â”‚
-   â””â”€ VirtualBox
-      â””â”€ Ubuntu Server (10.0.2.15)
-         â”œâ”€ SSH (port 2222 â†’ 22)
-         â”œâ”€ Web Server (Nginx)
-         â””â”€ Monitoring & Admin Tools
+   |
+   +-- VirtualBox
+       +-- Ubuntu Server (10.0.2.15)
+           +-- SSH (port 2222 -> 22)
+           +-- Web Server (Nginx)
+           +-- Monitoring & Admin Tools
 ```
 
 ## Documentation Structure
@@ -58,9 +58,9 @@ Windows PC
 - [x] Install and configure Nginx (see [NGINX.md](./NGINX.md))
 - [x] Setup custom homepage
 - [x] Configure firewall rules for HTTP
-- [x] Port forwarding for HTTP (8080 â†’ 80)
+- [x] Port forwarding for HTTP (8080 -> 80)
 - [x] Configure SSL/TLS with self-signed certificate (see [SSL_TLS.md](./SSL_TLS.md))
-- [x] Port forwarding for HTTPS (8443 â†’ 443)
+- [x] Port forwarding for HTTP (8080 -> 80)
 - [x] Configure virtual hosts for `site1.local` and `site2.local` (see [VIRTUAL_HOSTS.md](./VIRTUAL_HOSTS.md))
 - [x] Troubleshoot Nginx default-server selection and verify Host-header routing
 
@@ -150,20 +150,12 @@ git push origin main
 3. **Install First Service** - Setup Nginx
 4. **Document Progress** - Update this README
 
-## Security & Maintenance (recommended next tasks)
-- [ ] Install and configure fail2ban to protect SSH
-- [ ] Implement an automated backup strategy and document scripts/locations
-- [ ] Configure monitoring (Prometheus / Node Exporter / Glances) and logging/rotation
-- [ ] Rotate SSH keys periodically and document key management
-- [ ] Harden services (Nginx/TLS, Docker security) and add related docs
+## Deferred follow-up work
+
+Fail2ban, key rotation, expanded monitoring, and additional service hardening are intentionally deferred to a future project.
 
 ---
 
 **Last Updated:** September 22, 2026
 **Author:** josephtperkins01
 **License:** MIT
-
-
-
-
-

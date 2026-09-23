@@ -1,5 +1,8 @@
 # Architecture - Linux Home Lab
 
+This diagram represents the lab I actually built: a Windows host, one Ubuntu VM in VirtualBox NAT, forwarded access, and services added in stages.
+
+
 ## System Architecture Overview
 
 ```
@@ -199,13 +202,13 @@ Future services:
 
 ### Security Enhancements (Future)
 
-- [ ] SSH key-based authentication (no passwords)
-- [ ] Disable SSH password authentication
-- [ ] Configure firewall rules
-- [ ] Setup fail2ban for brute-force protection
-- [ ] Enable SELinux or AppArmor
-- [ ] Regular security updates via unattended-upgrades
-- [ ] Container security (Docker best practices)
+- SSH key-based authentication (no passwords)
+- Disable SSH password authentication
+- Configure firewall rules
+- Setup fail2ban for brute-force protection
+- Enable SELinux or AppArmor
+- Regular security updates via unattended-upgrades
+- Container security (Docker best practices)
 
 ## Resource Allocation
 

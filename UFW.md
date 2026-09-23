@@ -1,5 +1,8 @@
 # UFW Firewall Configuration
 
+I enabled UFW after confirming SSH access, then kept incoming traffic deny-by-default so each later service had to be deliberately opened.
+
+
 This document records the basic firewall setup used in the homelab VM.
 
 Goals

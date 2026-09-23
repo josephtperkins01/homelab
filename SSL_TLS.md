@@ -1,5 +1,8 @@
 # SSL/TLS Configuration - Self-Signed Certificate
 
+I used a self-signed certificate because this VM has no public DNS name or reachable public IP. That let me practice the Nginx TLS configuration without exposing the lab.
+
+
 This document records the SSL/TLS setup using a self-signed certificate for the homelab Nginx server.
 
 ## Overview

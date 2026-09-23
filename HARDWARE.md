@@ -1,5 +1,8 @@
 # Hardware Specifications - Linux Home Lab
 
+These are the resource assumptions and expansion notes I used to size the VirtualBox VM. They are planning values, not claims about hardware that is not recorded elsewhere.
+
+
 ## Host Machine (Windows PC)
 
 ### Processor

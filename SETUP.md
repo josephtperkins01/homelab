@@ -1,5 +1,8 @@
 # Setup Guide - Linux Home Lab
 
+I used this guide while bringing the Ubuntu VM from a fresh install to a reachable, managed server. The commands below reflect the order I followed and the checks I used to avoid losing access.
+
+
 ## Table of Contents
 1. [Initial System Setup](#initial-system-setup)
 2. [Network Configuration](#network-configuration)
@@ -211,13 +214,13 @@ htop --version
 
 ### Checklist
 
-- [ ] System updated and rebooted
-- [ ] Hostname changed to homelab-server
-- [ ] SSH is running and enabled
-- [ ] Port forwarding configured in VirtualBox (2222 → 22)
-- [ ] Can SSH from Windows: `ssh vboxuser@localhost -p 2222`
-- [ ] Admin tools installed
-- [ ] All verification commands run successfully
+- System updated and rebooted
+- Hostname changed to homelab-server
+- SSH is running and enabled
+- Port forwarding configured in VirtualBox (2222 → 22)
+- Can SSH from Windows: `ssh vboxuser@localhost -p 2222`
+- Admin tools installed
+- All verification commands run successfully
 
 ## Troubleshooting
 

@@ -1,5 +1,8 @@
 # Network Configuration - Linux Home Lab
 
+I kept the VM behind VirtualBox NAT and used explicit localhost forwards so the lab stayed isolated from the home network while I learned SSH and service routing.
+
+
 ## Network Overview
 
 ```
@@ -376,10 +379,10 @@ For multi-VM labs, add Host-Only Adapter:
 - ⚠️ Default SSH password authentication (upgradeable)
 
 ### Future Enhancements
-- [ ] SSH key-based authentication
-- [ ] Disable SSH password authentication
-- [ ] Configure firewall rules (ufw)
-- [ ] Setup fail2ban for brute-force protection
+- SSH key-based authentication
+- Disable SSH password authentication
+- Configure firewall rules (ufw)
+- Setup fail2ban for brute-force protection
 
 ### Enable Ubuntu Firewall
 
